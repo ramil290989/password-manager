@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthContext from './context/AuthContext.jsx';
+import HeaderNav from './components/Navbar.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Login from './pages/LogIn.jsx';
 import SignUp from './pages/SignUp.jsx';
@@ -11,9 +12,10 @@ import PageNotFound from './pages/PageNotFound.jsx';
 const App = () => {
   const username = localStorage.getItem('pasManUsername');
   const token = localStorage.getItem('pasManToken');
-  const { authData, setAthData } = useState({ username, token });
+  const [authData, setAthData] = useState({ username, token });
   return (
     <AuthContext.Provider value={{ authData, setAthData }}>
+      <HeaderNav />
       <BrowserRouter>
         <Routes>
           <Route path='*' element={<PageNotFound />}/>
