@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import AuthContext from './context/AuthContext.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
 import Login from './pages/LogIn.jsx';
 import SignUp from './pages/SignUp.jsx';
 import Main from './pages/Main.jsx';
@@ -17,7 +18,13 @@ const App = () => {
           <Route path='*' element={<PageNotFound />}/>
           <Route path='login' element={<Login />} />
           <Route path='signup' element={<SignUp />} />
-          <Route path='/' element={<Main />} />
+          <Route
+            path='/'
+            element={
+              <PrivateRoute>
+                <Main />
+              </PrivateRoute>
+            } />
         </Routes>
       </BrowserRouter>
     </AuthContext.Provider>
