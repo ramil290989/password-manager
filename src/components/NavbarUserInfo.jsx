@@ -3,8 +3,14 @@ import { Navbar, Button } from 'react-bootstrap';
 import AuthContext from '../context/AuthContext';
 
 const NavbarUserInfo = () => {
-  const { authData } = useContext(AuthContext);
+  const { authData, setAuthData } = useContext(AuthContext);
   const { username } = authData;
+
+  const onClick = () => {
+    localStorage.removeItem('pasManUsername');
+    localStorage.removeItem('pasManToken');
+    setAuthData({});
+  };
 
   return (
     username ? (
@@ -12,7 +18,7 @@ const NavbarUserInfo = () => {
         <Navbar.Text>
           Signed in: {username}
         </Navbar.Text>
-        <Button className='mx-4'>Log out</Button>
+        <Button className='mx-4' onClick={onClick}>Log out</Button>
       </div>
     )
     : null
