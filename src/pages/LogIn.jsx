@@ -10,9 +10,9 @@ const Login = () => {
         <Col xs={12} md={8} xxl={6}>
           <Card className='p-3 shadow'>
             <Card.Body>
-              <Row>
+              <Row className='align-items-center'>
                 <Col xs={3} md={6}>
-                  <Image src={lock} className='h-100' fill="red"/>
+                  <Image src={lock} className='w-100' fill="red"/>
                 </Col>
                 <Col>
                   <LogInForm />
