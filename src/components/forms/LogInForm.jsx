@@ -68,7 +68,7 @@ const LogInForm = () => {
               required
             />
             {error ? (
-              <div className='invalid-tooltip'>{t('errors.431')}</div>
+              <div className='invalid-tooltip'>{t(`errors.${error}`)}</div>
               ) : null}          
           </Form.FloatingLabel>
           <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>Auth</Button>
