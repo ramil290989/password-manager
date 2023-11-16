@@ -12,7 +12,7 @@ const Login = () => {
             <Card.Body>
               <Row className='align-items-center'>
                 <Col xs={3} md={6} className='mx-auto p-4'>
-                  <Lock fill='DarkSlateGrey' />
+                  <Lock fill='var(--bs-gray-900)'/>
                 </Col>
                 <Col>
                   <LogInForm />
