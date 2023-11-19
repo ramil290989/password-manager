@@ -2,9 +2,18 @@ const ru = {
   translation: {
     forms: {
       login: 'Авторизация',
+      signUp: 'Регистрация',
       usernameInput: 'Имя пользователя',
       passwordInput: 'Пароль',
+      passwordConfirmInput: 'Подтверждение пароля',
       loginBtn: 'Войти',
+      signUpBtn: 'Зарегистрироваться',
+    },
+    validations: {
+      min3max20: 'От 3 до 20 символов',
+      required: 'Обязательное поле',
+      min6: 'Пароль должен содержать минимум 6 символов',
+      oneOf: 'Пароль и подтверждение пароля должны совпадать',
     },
     navbar: {
       userInf: 'Вы вошли как ',
