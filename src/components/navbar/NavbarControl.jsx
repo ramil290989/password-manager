@@ -18,7 +18,7 @@ const NavbarControl = () => {
   return username
     ? (
         <>
-          <Nav className='mx-md-4 mb-2 mb-md-0'>
+          <Nav className='mx-md-2 mx-lg-4 mb-2 mb-md-0'>
             <Nav.Link className='text-dark' href=''>{t('navbar.addPassword')}</Nav.Link>
             <Nav.Link className='text-dark' href=''>{t('navbar.settings')}</Nav.Link>
           </Nav>
