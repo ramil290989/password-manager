@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import apiRoutes from '../../apiRoutes.js';
 import AuthContext from '../../context/AuthContext.jsx';
 import { validationSchemaSignUp } from '../../validationSchemas.js';
+import { formTrim } from '../../inputTrim.js';
 
 const SignUpForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -51,11 +52,12 @@ const SignUpForm = () => {
               type='text'
               className={formProps.errors.username && formProps.touched.username || error ? 'is-invalid' : null}
               placeholder={t('forms.usernameInput')}
-              onChange={formProps.handleChange}
+              onChange={({ target }) => formProps.setFieldValue('username', formTrim(target.value))}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
+              value={formTrim(formProps.values.username)}
               required
-            />            
+            />
             {formProps.errors.username && formProps.touched.username ? (
               <div className='invalid-tooltip'>{formProps.errors.username}</div>
               ) : null}
@@ -67,9 +69,10 @@ const SignUpForm = () => {
               type='password'
               className={formProps.errors.password && formProps.touched.password || error ? 'is-invalid' : null}
               placeholder={t('forms.passwordInput')}
-              onChange={formProps.handleChange}
+              onChange={({ target }) => formProps.setFieldValue('password', formTrim(target.value))}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
+              value={formTrim(formProps.values.password)}
               required
             />
             {formProps.errors.password && formProps.touched.password ? (
@@ -83,9 +86,10 @@ const SignUpForm = () => {
               type='password'
               className={formProps.errors.confirmPassword && formProps.touched.confirmPassword || error ? 'is-invalid' : null}
               placeholder={t('forms.passwordConfirmInput')}
-              onChange={formProps.handleChange}
+              onChange={({ target }) => formProps.setFieldValue('confirmPassword', formTrim(target.value))}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
+              value={formTrim(formProps.values.confirmPassword)}
               required
             />
             {formProps.errors.confirmPassword && formProps.touched.confirmPassword || error ? (
