@@ -7,9 +7,11 @@ import {
 } from 'react-bootstrap';
 import { selectors as passwordsSelectors } from '../../slices/passwordsSlice.js';
 import PasswordCard from './PaswordCard.jsx';
+import ModalWindow from '../modals/ModalWindow.jsx';
 
 const Passwords = () => {
   const passwords = useSelector(passwordsSelectors.selectAll);
+  const modalWindow = useSelector((state) => state.modals.window);
 
   return (
     <Container className='mt-4'>
@@ -20,6 +22,7 @@ const Passwords = () => {
           </Col>
         ))}
       </Row>
+      {modalWindow && <ModalWindow window={modalWindow} />}
     </Container>
   );
 };
