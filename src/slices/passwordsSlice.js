@@ -22,7 +22,9 @@ const initialState = passwordsAdapter.getInitialState({
 const passwordSlice = createSlice({
   name: 'passwords',
   initialState,
-  reducers: {},
+  reducers: {
+    addPassword: passwordsAdapter.addOne,
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getPasswords.pending, (state) => {
@@ -36,7 +38,7 @@ const passwordSlice = createSlice({
       })
       .addCase(getPasswords.rejected, (state, action) => {
         state.loadingStatus = 'failed';
-        state.error = action.error;
+        state.error = action.payload.error;
       })
   }
 });
