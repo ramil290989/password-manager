@@ -36,7 +36,7 @@ const passwordSlice = createSlice({
       })
       .addCase(getPasswords.rejected, (state, action) => {
         state.loadingStatus = 'failed';
-        state.error = action.payload.error;
+        state.error = action.error;
       })
   }
 });

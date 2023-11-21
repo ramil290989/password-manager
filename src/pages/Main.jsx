@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthContext from '../context/AuthContext.jsx';
 import { getPasswords } from '../slices/passwordsSlice.js';
 import Loading from '../components/Loading.jsx';
+import LoadingFailed from '../components/LoadingFailed.jsx';
 import Passwords from '../components/passwords/Passwords.jsx';
 
 const Main = () => {
@@ -25,6 +26,10 @@ const Main = () => {
     case 'idle':
       return (
         <Passwords />
+      );
+    case 'failed':
+      return (
+        <LoadingFailed />
       );
     default:
       return null;
