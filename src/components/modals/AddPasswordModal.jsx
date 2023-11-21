@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { actions as modalsActions } from '../../slices/modalsSlice';
 import { Modal } from 'react-bootstrap';
+import AddPasswordForm from '../forms/AddPasswordForm.jsx';
 
 const AddPasswordModal = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const AddPasswordModal = () => {
         <Modal.Title>Добавить пароль</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        <AddPasswordForm />
       </Modal.Body>
     </Modal>
   );
