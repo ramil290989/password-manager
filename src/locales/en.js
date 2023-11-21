@@ -27,8 +27,14 @@ const en = {
       409: 'This username already exists',
       431: 'Connection error',
       500: 'Connection error',
-    }
-  }
+    },
+    other: {
+      loading: 'Loading',      
+      loadingText: 'please wait, data is loading...',
+      error: 'Error',
+      errorText: 'please try again later...',
+    },
+  },
 };
 
 export default en;
