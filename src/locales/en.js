@@ -3,11 +3,15 @@ const en = {
     forms: {
       login: 'Authorization',
       signUp: 'Registration',
+      addPassword: 'Add password',
       usernameInput: 'Username',
       passwordInput: 'Password',
       passwordConfirmInput: 'Confirm password',
+      headerInput: 'Header',
+      descriptionInput: 'Short description',
       loginBtn: 'Log in',
       signUpBtn: 'Sign up',
+      addPasswordBtn: 'Add password',
     },
     validations: {
       min3max20: 'Enter from 3 to 20 characters',

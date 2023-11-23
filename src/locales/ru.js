@@ -3,11 +3,15 @@ const ru = {
     forms: {
       login: 'Авторизация',
       signUp: 'Регистрация',
+      addPassword: 'Добавить пароль',
       usernameInput: 'Имя пользователя',
       passwordInput: 'Пароль',
       passwordConfirmInput: 'Подтверждение пароля',
+      headerInput: 'Заголовок',
+      descriptionInput: 'Краткое описание',
       loginBtn: 'Войти',
       signUpBtn: 'Зарегистрироваться',
+      addPasswordBtn: 'Добавить пароль',
     },
     validations: {
       min3max20: 'От 3 до 20 символов',
