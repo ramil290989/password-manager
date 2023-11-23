@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import AuthContext from '../../context/AuthContext.jsx';
 import { useTranslation } from 'react-i18next';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
+import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 
 const NavbarControl = () => {
   const { authData, setAuthData } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const NavbarControl = () => {
     localStorage.removeItem('pasManUsername');
     localStorage.removeItem('pasManToken');
     setAuthData({});
+    dispatch(passwordsActions.resetData());
   };
 
   return username
