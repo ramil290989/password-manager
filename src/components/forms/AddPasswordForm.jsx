@@ -58,9 +58,10 @@ const AddPasswordForm = () => {
               <div className='invalid-tooltip'>{formProps.errors.header}</div>
               ) : null}
           </Form.FloatingLabel>
-          <Form.FloatingLabel className='mb-4' label={t('forms.descriptionInput')}>
+          <Form.FloatingLabel className='mb-4 text-end' label={t('forms.descriptionInput')}>
             <Form.Control
               as="textarea"
+              maxLength="100"
               rows={3}
               id='description'
               name='description'
@@ -71,9 +72,9 @@ const AddPasswordForm = () => {
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
             />
-            {formProps.errors.description && formProps.touched.description ? (
-              <div className='invalid-tooltip'>{formProps.errors.description}</div>
-              ) : null}
+            <Form.Text className='text-muted text-end'>
+              {100 - formProps.values.description.length}
+            </Form.Text>
           </Form.FloatingLabel>
           <Form.FloatingLabel className='mb-4' label={t('forms.usernameInput')}>
             <Form.Control
