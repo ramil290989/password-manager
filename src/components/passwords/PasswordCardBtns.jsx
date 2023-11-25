@@ -1,43 +1,23 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ButtonGroup,
   Button,
   DropdownButton,
   Dropdown,
-  Image,
-  Toast,
-  Row,
-  Col
+  Image
 } from 'react-bootstrap';
 import icons from '../../svg/icons.js';
 import { hideBtnClick } from '../processings/hideBtnClick.js';
+import clipboard from '../processings/clipboardWrite.js'
 import clipboardWrite from '../processings/clipboardWrite.js';
 
 const PasswordCardBtns = (props) => {
   const { data } = props;
   const { id, password } = data;
   const [show, setShow] = useState(false);
+  const target = useRef(null);
   return (
     <>
-<Row>
-      <Col xs={6}>
-        <Toast onClose={() => setShow(false)} show={show} delay={3000} className='position-fixed bottom-0 end-0 p-3' autohide>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded me-2"
-              alt=""
-            />
-            <strong className="me-auto">Bootstrap</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Woohoo, you're reading this text in a Toast!</Toast.Body>
-        </Toast>
-      </Col>
-      <Col xs={6}>
-        <Button onClick={() => setShow(true)}>Show Toast</Button>
-      </Col>
-    </Row>
     <ButtonGroup className='m-3'>
       <Button
         variant='primary'
