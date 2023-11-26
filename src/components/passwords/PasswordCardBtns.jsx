@@ -4,11 +4,11 @@ import {
   Button,
   DropdownButton,
   Dropdown,
-  Image
+  Image,
+  Overlay,
 } from 'react-bootstrap';
 import icons from '../../svg/icons.js';
 import { hideBtnClick } from '../processings/hideBtnClick.js';
-import clipboard from '../processings/clipboardWrite.js'
 import clipboardWrite from '../processings/clipboardWrite.js';
 
 const PasswordCardBtns = (props) => {
@@ -31,12 +31,20 @@ const PasswordCardBtns = (props) => {
         />
       </Button>
       <Button
+        ref={target}
         variant='primary'
         className='w-50'
-        onClick={() => clipboardWrite(password)}
+        onClick={() => clipboardWrite(password, setShow, show)}
       >
         <Image src={icons.copy()} alt='copy' />
       </Button>
+      <Overlay target={target.current} show={show} placement='top'>
+        {(props) => (
+          <div {...props} className='bg-light m-2 p-1 pb-2 rounded-2 shadow'>
+            скопировано
+          </div>
+        )}
+      </Overlay>
       <DropdownButton
         as={ButtonGroup}
         id={`dropdown-${id}`}
