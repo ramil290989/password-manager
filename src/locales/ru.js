@@ -13,6 +13,14 @@ const ru = {
       signUpBtn: 'Зарегистрироваться',
       addPasswordBtn: 'Добавить пароль',
     },
+    modals: {
+      remove: {
+        head: 'Удалить пароль',
+        title: 'Подтвердите удаление пароля',
+        removeBtn: 'Удалить',
+        cancelBtn: 'Отмена',
+      },
+    },
     passwordCardBtns: {
       remove: 'удалить',
       overlayCopyOk: 'скопировано',
