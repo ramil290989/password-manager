@@ -7,11 +7,14 @@ import {
   Image,
   Overlay,
 } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
 import icons from '../../svg/icons.js';
 import { hideBtnClick } from '../processings/hideBtnClick.js';
 import clipboardWrite from '../processings/clipboardWrite.js';
+import RemovePasswordItem from './RemovePasswordItem.jsx';
 
 const PasswordCardBtns = (props) => {
+  const { t } = useTranslation();
   const { data } = props;
   const { id, password } = data;
   const [show, setShow] = useState(false);
@@ -41,7 +44,7 @@ const PasswordCardBtns = (props) => {
       <Overlay target={target.current} show={show} placement='top'>
         {(props) => (
           <div {...props} className='bg-light m-2 p-1 pb-2 rounded-2 shadow'>
-            скопировано
+            {t('passwordCardBtns.overlayCopyOk')}
           </div>
         )}
       </Overlay>
@@ -58,13 +61,7 @@ const PasswordCardBtns = (props) => {
             alt='edit'
           /> change
         </Dropdown.Item>
-        <Dropdown.Item eventKey='2'>
-          <Image
-            className='mx-2'
-            src={icons.remove()}
-            alt='remove'
-          /> remove
-        </Dropdown.Item>
+        <RemovePasswordItem id={id} />
       </DropdownButton>
     </ButtonGroup>
     </>
