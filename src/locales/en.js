@@ -13,6 +13,10 @@ const en = {
       signUpBtn: 'Sign up',
       addPasswordBtn: 'Add password',
     },
+    passwordCardBtns: {
+      remove: 'remove',
+      overlayCopyOk: 'copied',
+    },
     validations: {
       min3max20: 'Enter from 3 to 20 characters',
       required: 'Obligatory field',

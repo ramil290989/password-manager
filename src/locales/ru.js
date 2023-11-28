@@ -13,6 +13,10 @@ const ru = {
       signUpBtn: 'Зарегистрироваться',
       addPasswordBtn: 'Добавить пароль',
     },
+    passwordCardBtns: {
+      remove: 'удалить',
+      overlayCopyOk: 'скопировано',
+    },
     validations: {
       min3max20: 'От 3 до 20 символов',
       required: 'Обязательное поле',
