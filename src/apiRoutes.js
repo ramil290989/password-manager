@@ -4,7 +4,7 @@ const apiRoutes = {
   data: () => '/api/data',
   addPassword: () => '/api/addpassword',
   changePassword: () => '/api/changepassword',
-  removePassword: () => '/api/removeepassword',
+  removePassword: () => '/api/removepassword',
 };
 
 export default apiRoutes;
