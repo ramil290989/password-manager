@@ -1,12 +1,13 @@
 import React from 'react';
 import AddPasswordModal from './AddPasswordModal.jsx';
+import EditPasswordModal from './EditPasswordModal.jsx';
 import RemoveModal from './RemovePasswordModal.jsx';
-import EditPasswordModal from './EditPasswordModal.jsx'
 
 const modalWindows = {
   addPassword: AddPasswordModal,
   removePassword: RemoveModal,
   editPassword: EditPasswordModal,
+  removePassword: RemoveModal,
 };
 
 const ModalWindow = ({ window }) => {
