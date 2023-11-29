@@ -16,27 +16,24 @@ const App = () => {
   const username = localStorage.getItem('pasManUsername');
   const token = localStorage.getItem('pasManToken');
   const [authData, setAuthData] = useState({ username, token });
-  const [toastShow, setToastShow] = useState(false);
   return (
     <AuthContext.Provider value={{ authData, setAuthData }}>
-      <ToastContext.Provider value={{ toastShow, setToastShow}}>
-        <ToastMessage />
-        <HeaderNav />
-        <BrowserRouter>
-          <Routes>
-            <Route path='*' element={<PageNotFound />}/>
-            <Route path='login' element={<Login />} />
-            <Route path='signup' element={<SignUp />} />
-            <Route
-              path='/'
-              element={
-                <PrivateRoute>
-                  <Main />
-                </PrivateRoute>
-              } />
-          </Routes>
-        </BrowserRouter>
-      </ToastContext.Provider>
+      <ToastMessage />
+      <HeaderNav />
+      <BrowserRouter>
+        <Routes>
+          <Route path='*' element={<PageNotFound />}/>
+          <Route path='login' element={<Login />} />
+          <Route path='signup' element={<SignUp />} />
+          <Route
+            path='/'
+            element={
+              <PrivateRoute>
+                <Main />
+              </PrivateRoute>
+            } />
+        </Routes>
+      </BrowserRouter>
     </AuthContext.Provider>
   );
 }
