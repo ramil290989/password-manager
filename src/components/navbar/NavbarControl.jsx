@@ -29,7 +29,7 @@ const NavbarControl = () => {
         <>
           <Nav className='mx-md-2 mx-lg-4 mb-2 mb-md-0'>
             <Nav.Link className='text-dark' onClick={openAddPasswordModal}>{t('navbar.addPassword')}</Nav.Link>
-            <Nav.Link className='text-dark' href=''>{t('navbar.settings')}</Nav.Link>
+            <Nav.Link className='text-dark' >{t('navbar.settings')}</Nav.Link>
           </Nav>
           <Navbar.Text className='mx-md-2'>
             {t('navbar.userInf')}{username}
