@@ -5,15 +5,14 @@ import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as passwordsActions} from '../../slices/passwordsSlice.js';
+import { actions as toastActions } from '../../slices/toastSlice.js';
 import AuthContext from '../../context/AuthContext.jsx';
-import ToastContext from '../../context/ToastContext.jsx';
 import apiRoutes from '../../apiRoutes.js';
 
 const RemoveModal = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { authData } = useContext(AuthContext);
-  const { toastShow, setToastShow } = useContext(ToastContext);
+  const { authData, setAuthData } = useContext(AuthContext);
 
   const isShow = useSelector((state) => state.modals.window) === 'removePassword';
   const id = useSelector((state) => state.modals.id);
@@ -28,10 +27,23 @@ const RemoveModal = () => {
     dispatch(modalsActions.modalHide());
   };
 
+  const resetAuth = () => {
+    setAuthData({});
+    localStorage.removeItem('pasManUsername');
+    localStorage.removeItem('pasManToken');
+    dispatch(passwordsActions.resetData());
+  };
+
   const removePassword = () => {
     axios.post(removePath, removeData, authHeader)
       .then(({ status }) => status === 200 && dispatch(passwordsActions.removePassword(id)))
-      .catch((e) => setToastShow(!toastShow))
+      .catch((e) => {
+        const { status } = e.response;
+        const head = t('other.error');
+        const title = t(`errors.${status}`);
+        dispatch(toastActions.toastShow({ head, title }));
+        status === 403 && resetAuth();
+      })
       .finally(onHide());
   };
 
