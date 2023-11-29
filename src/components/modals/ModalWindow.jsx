@@ -7,7 +7,6 @@ const modalWindows = {
   addPassword: AddPasswordModal,
   removePassword: RemoveModal,
   editPassword: EditPasswordModal,
-  removePassword: RemoveModal,
 };
 
 const ModalWindow = ({ window }) => {
