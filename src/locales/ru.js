@@ -14,16 +14,23 @@ const ru = {
       addPasswordBtn: 'Добавить пароль',
     },
     modals: {
+      editPassword: {
+        head: 'Редактировать пароль',
+      },
       remove: {
         head: 'Удалить пароль',
         title: 'Подтвердите удаление пароля',
-        removeBtn: 'Удалить',
-        cancelBtn: 'Отмена',
+      },
+      btns: {
+        save: 'Созранить',
+        cancel: 'Отмена',
+        remove: 'Удалить',
       },
     },
     passwordCardBtns: {
-      remove: 'удалить',
-      overlayCopyOk: 'скопировано',
+      edit: 'Редактировать',
+      remove: 'Удалить',
+      overlayCopyOk: 'Скопировано',
     },
     validations: {
       min3max20: 'От 3 до 20 символов',

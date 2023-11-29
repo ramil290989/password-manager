@@ -13,9 +13,24 @@ const en = {
       signUpBtn: 'Sign up',
       addPasswordBtn: 'Add password',
     },
+    modals: {
+      editPassword: {
+        head: 'Edit password',
+      },
+      remove: {
+        head: 'Remove password',
+        title: 'Confirm password removal',
+      },
+      btns: {
+        save: 'Save',
+        cancel: 'Cancel',
+        remove: 'Remove',
+      },
+    },
     passwordCardBtns: {
-      remove: 'remove',
-      overlayCopyOk: 'copied',
+      edit: 'Edit',
+      remove: 'Remove',
+      overlayCopyOk: 'Copied',
     },
     validations: {
       min3max20: 'Enter from 3 to 20 characters',
