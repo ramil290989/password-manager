@@ -5,6 +5,7 @@ import RemoveModal from './RemovePasswordModal.jsx';
 
 const modalWindows = {
   addPassword: AddPasswordModal,
+  removePassword: RemoveModal,
   editPassword: EditPasswordModal,
   removePassword: RemoveModal,
 };
