@@ -12,6 +12,7 @@ import icons from '../../svg/icons.js';
 import { hideBtnClick } from '../processings/hideBtnClick.js';
 import clipboardWrite from '../processings/clipboardWrite.js';
 import RemovePasswordItem from './RemovePasswordItem.jsx';
+import EditPasswordItem from './EditPasswordItem.jsx';
 
 const PasswordCardBtns = (props) => {
   const { t } = useTranslation();
@@ -54,13 +55,7 @@ const PasswordCardBtns = (props) => {
         className='w-50'
         title={<Image src={icons.menu()} alt='menu' />}
       >
-        <Dropdown.Item eventKey='1'>
-          <Image
-            className='mx-2'
-            src={icons.edit()}
-            alt='edit'
-          /> change
-        </Dropdown.Item>
+        <EditPasswordItem id={id} />
         <RemovePasswordItem id={id} />
       </DropdownButton>
     </ButtonGroup>
