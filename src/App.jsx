@@ -20,7 +20,7 @@ const App = () => {
   return (
     <AuthContext.Provider value={{ authData, setAuthData }}>
       <ToastContext.Provider value={{ toastShow, setToastShow}}>
-        {toastShow ? <ToastMessage /> : null}
+        <ToastMessage />
         <HeaderNav />
         <BrowserRouter>
           <Routes>

@@ -1,15 +1,40 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import ToastContext from '../context/ToastContext.jsx';
-import { Toast } from 'react-bootstrap';
+import { ProgressBar, Toast, ToastContainer } from 'react-bootstrap';
 
 const ToastMessage = () => {
   const { toastShow, setToastShow } = useContext(ToastContext);
+  const toastDelay = 3000;
+  
+
+  useEffect(() => {
+    if (toastShow) {
+      const id = setTimeout(() => {setToastShow(!toastShow)}, toastDelay);
+      console.log(id)
+    }
+  }, [toastShow, setToastShow]);
 
   return (
-    <Toast onClose={() => setToastShow(false)} show={toastShow} delay={3000} autohide>
-      <Toast.Header>ошибка</Toast.Header>
-      <Toast.Body>Ошибка</Toast.Body>
-    </Toast>
+    <ToastContainer position='top-center' className='p-5'>
+      <Toast
+        show={toastShow}
+        onClose={() => setToastShow(false)}
+      >
+        <Toast.Header>
+          <img
+            src="holder.js/20x20?text=%20"
+            className="rounded me-2"
+            alt=""
+          />
+          <strong className="me-auto">Bootstrap</strong>
+          <small className="text-muted">just now</small>
+        </Toast.Header>
+        <Toast.Body>
+          <ProgressBar variant='warning' min={0} max={toastDelay}
+            now={1} />
+        </Toast.Body>
+      </Toast>
+    </ToastContainer>
   )
 }
 
