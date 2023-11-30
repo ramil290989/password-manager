@@ -12,6 +12,7 @@ const en = {
       loginBtn: 'Log in',
       signUpBtn: 'Sign up',
       addPasswordBtn: 'Add password',
+      editPasswordBtn: 'Edit password',
     },
     modals: {
       editPassword: {
@@ -50,6 +51,13 @@ const en = {
       409: 'This username already exists',
       431: 'Connection error',
       500: 'Connection error',
+    },
+    toast: {
+      error: 'Error',
+      success: 'Success',
+      passwordAdded: 'Password added',
+      passwordChanged: 'Password changed',
+      passwordRemoved: 'Passwor removed',
     },
     other: {
       loading: 'Loading',      

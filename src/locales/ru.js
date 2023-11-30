@@ -12,6 +12,7 @@ const ru = {
       loginBtn: 'Войти',
       signUpBtn: 'Зарегистрироваться',
       addPasswordBtn: 'Добавить пароль',
+      editPasswordBtn: 'Изменить пароль',
     },
     modals: {
       editPassword: {
@@ -22,7 +23,7 @@ const ru = {
         title: 'Подтвердите удаление пароля',
       },
       btns: {
-        save: 'Созранить',
+        save: 'Сохранить',
         cancel: 'Отмена',
         remove: 'Удалить',
       },
@@ -50,6 +51,13 @@ const ru = {
       409: 'Такое имя пользователя уже существует',
       431: 'Ошибка на стороне сервера',
       500: 'Ошибка соединения',
+    },
+    toast: {
+      error: 'Ошибка',
+      success: 'Выполнено успешно',
+      passwordAdded: 'Пароль добавлен',
+      passwordChanged: 'Пароль изменен',
+      passwordRemoved: 'Пароль удален',
     },
     other: {
       loading: 'Загрузка',
