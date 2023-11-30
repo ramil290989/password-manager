@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import AuthContext from '../../context/AuthContext.jsx';
 import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
+import { actions as toastActions } from '../../slices/toastSlice.js';
 import apiRoutes from '../../apiRoutes.js';
 
 const AddPasswordForm = () => {
@@ -33,8 +34,11 @@ const AddPasswordForm = () => {
           const newPassword = await axios.post(addPasswordRoute, values, authHeader);
           dispatch(passwordsActions.addPassword(newPassword.data));
           dispatch(modalsActions.modalHide());
+          dispatch(toastActions.toastShowSuccess('toast.passwordAdded'));
         } catch (e) {
-          setError(e.response.status);
+          const { status } = e.response;
+          setError(status);
+          dispatch(toastActions.toastShowError(status));
         } finally {
           setIsDisabled(false);
         }

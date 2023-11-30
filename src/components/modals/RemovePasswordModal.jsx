@@ -36,12 +36,14 @@ const RemoveModal = () => {
 
   const removePassword = () => {
     axios.post(removePath, removeData, authHeader)
-      .then(({ status }) => status === 200 && dispatch(passwordsActions.removePassword(id)))
+      .then(({ status }) => {
+        status === 200 && dispatch(passwordsActions.removePassword(id));
+        const title = 'toast.passwordRemoved';
+        dispatch(toastActions.toastShowSuccess(title));
+      })
       .catch((e) => {
         const { status } = e.response;
-        const head = t('other.error');
-        const title = t(`errors.${status}`);
-        dispatch(toastActions.toastShow({ head, title }));
+        dispatch(toastActions.toastShowError(status));
         status === 403 && resetAuth();
       })
       .finally(onHide());
@@ -60,8 +62,8 @@ const RemoveModal = () => {
         <p>{t('modals.remove.title')}</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary' onClick={onHide}>{t('modals.remove.cancelBtn')}</Button>
-        <Button variant='danger' onClick={removePassword}>{t('modals.remove.removeBtn')}</Button>
+        <Button variant='secondary' onClick={onHide}>{t('modals.btns.cancel')}</Button>
+        <Button variant='danger' onClick={removePassword}>{t('modals.btns.remove')}</Button>
       </Modal.Footer>
     </Modal>
   );
