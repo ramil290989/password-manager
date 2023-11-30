@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { actions as modalsActions } from '../../slices/modalsSlice';
-import { Modal } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import EditPasswordForm from '../forms/EditPasswordForm.jsx';
 
 const EditPasswordModal = () => {
@@ -21,11 +21,14 @@ const EditPasswordModal = () => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{t('forms.addPassword')}</Modal.Title>
+        <Modal.Title>{t('modals.editPassword.head')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <EditPasswordForm />
       </Modal.Body>
+      <Modal.Footer>
+        <Button variant='secondary' onClick={onHide}>{t('modals.btns.cancel')}</Button>
+      </Modal.Footer>
     </Modal>
   );
 };
