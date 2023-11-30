@@ -14,8 +14,16 @@ const AddPasswordForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const { authData } = useContext(AuthContext);
+  const { authData, setAuthData } = useContext(AuthContext);
   const { t } = useTranslation();
+
+  const resetAuth = () => {
+    setAuthData({});
+    localStorage.removeItem('pasManUsername');
+    localStorage.removeItem('pasManToken');
+    dispatch(passwordsActions.resetData());
+  };
+
   return (
     <Formik
       initialValues={{
@@ -39,6 +47,7 @@ const AddPasswordForm = () => {
           const { status } = e.response;
           setError(status);
           dispatch(toastActions.toastShowError(status));
+          status === 403 && resetAuth();
         } finally {
           setIsDisabled(false);
         }
