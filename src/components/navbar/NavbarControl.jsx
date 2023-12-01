@@ -1,27 +1,18 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Navbar, Nav, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-import AuthContext from '../../context/AuthContext.jsx';
 import { useTranslation } from 'react-i18next';
+import { useLogOut } from '../../hooks/authHooks.jsx';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
-import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
-
 const NavbarControl = () => {
-  const { authData, setAuthData } = useContext(AuthContext);
-  const { username } = authData;
+  const username = localStorage.getItem('pasManUsername');
   const dispatch = useDispatch();
+  const logOut = useLogOut();
 
   const { t } = useTranslation();
 
   const openAddPasswordModal = () => {
     dispatch(modalsActions.modalShow({ window: 'addPassword' }));
-  };
-
-  const logOut = () => {
-    localStorage.removeItem('pasManUsername');
-    localStorage.removeItem('pasManToken');
-    setAuthData({});
-    dispatch(passwordsActions.resetData());
   };
 
   return username

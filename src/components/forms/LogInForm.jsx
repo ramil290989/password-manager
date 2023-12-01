@@ -1,18 +1,16 @@
-import React, { useContext, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import apiRoutes from '../../apiRoutes.js';
-import AuthContext from '../../context/AuthContext.jsx';
+import { useLogIn } from '../../hooks/authHooks.jsx';
 
 const LogInForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState('');
-  const { setAuthData } = useContext(AuthContext);
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const logIn = useLogIn();
   return (
     <Formik
       initialValues={{
@@ -22,21 +20,10 @@ const LogInForm = () => {
       onSubmit={ async ({ username, password }) => {
         setIsDisabled(true);
         setError('');
-        const loginRoute = apiRoutes.login();
         const loginData = { username, password };
-        try {
-          const authData = await axios.post(loginRoute, loginData);
-          const { token } = authData.data;
-          localStorage.setItem('pasManUsername', username);
-          localStorage.setItem('pasManToken', token);
-          setAuthData({ username, token });
-          navigate('/');
-        } catch (e) {
-          setError(e.response.status);
-        } finally {
-          setIsDisabled(false);
-        }
-
+        logIn(loginData, setError);
+        setIsDisabled(false);
+        error ?? navigate('/');
       }}
     >
       {(formProps) => (
