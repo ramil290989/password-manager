@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import AuthProvider from './providers/AuthProvider.jsx';
+import './App.css'
+import AuthContext from './context/AuthContext.jsx';
+import ToastContext from './context/ToastContext.jsx';
 import HeaderNav from './components/navbar/Navbar.jsx';
 import PrivateRoute from './components/PrivateRoute.jsx';
 import Login from './pages/LogIn.jsx';
@@ -12,8 +13,11 @@ import PageNotFound from './pages/PageNotFound.jsx';
 import ToastMessage from './components/Toast.jsx';
 
 const App = () => {
+  const username = localStorage.getItem('pasManUsername');
+  const token = localStorage.getItem('pasManToken');
+  const [authData, setAuthData] = useState({ username, token });
   return (
-    <AuthProvider>
+    <AuthContext.Provider value={{ authData, setAuthData }}>
       <ToastMessage />
       <HeaderNav />
       <BrowserRouter>
@@ -30,7 +34,7 @@ const App = () => {
             } />
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
+    </AuthContext.Provider>
   );
 }
 
