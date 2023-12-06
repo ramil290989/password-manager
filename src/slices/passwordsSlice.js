@@ -26,7 +26,6 @@ const passwordSlice = createSlice({
     resetData: () => initialState,
     addPassword: passwordsAdapter.addOne,
     removePassword: passwordsAdapter.removeOne,
-    updatePassword: passwordsAdapter.updateOne,
   },
   extraReducers: (builder) => {
     builder
