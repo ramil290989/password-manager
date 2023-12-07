@@ -10,6 +10,7 @@ import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import { selectors as passwordSelectors } from '../../slices/passwordsSlice.js';
 import apiRoutes from '../../apiRoutes.js';
+import useLogOut from '../../hooks/useLogOut.jsx';
 
 const EditPasswordForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
@@ -22,12 +23,7 @@ const EditPasswordForm = () => {
   const passwordObj = useSelector((state) => passwordSelectors.selectById(state, id));
   const { header, description, userName, password } = passwordObj;
 
-  const resetAuth = () => {
-    setAuthData({});
-    localStorage.removeItem('pasManUsername');
-    localStorage.removeItem('pasManToken');
-    dispatch(passwordsActions.resetData());
-  };
+  const logOut = useLogOut();
 
   return (
     <Formik
@@ -49,14 +45,13 @@ const EditPasswordForm = () => {
           await axios.post(changePasswordRoute, postData, authHeader);
           dispatch(passwordsActions.updatePassword({ id, changes: values }));
           dispatch(modalsActions.modalHide());
-          console.log('hide');
           dispatch(toastActions.toastShowSuccess('toast.passwordChanged'));
         } catch (e) {
           console.log(e);
           const status = e.response.status;
           setError(status);
           dispatch(toastActions.toastShowError(status));
-          status === 403 && resetAuth();
+          status === 403 && logOut();
         } finally {
           setIsDisabled(false);
         }

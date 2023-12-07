@@ -9,20 +9,16 @@ import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import apiRoutes from '../../apiRoutes.js';
+import useLogOut from '../../hooks/useLogOut.jsx';
 
 const AddPasswordForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const { authData, setAuthData } = useContext(AuthContext);
+  const { authData } = useContext(AuthContext);
   const { t } = useTranslation();
 
-  const resetAuth = () => {
-    setAuthData({});
-    localStorage.removeItem('pasManUsername');
-    localStorage.removeItem('pasManToken');
-    dispatch(passwordsActions.resetData());
-  };
+  const logOut = useLogOut();
 
   return (
     <Formik
@@ -47,7 +43,7 @@ const AddPasswordForm = () => {
           const { status } = e.response;
           setError(status);
           dispatch(toastActions.toastShowError(status));
-          status === 403 && resetAuth();
+          status === 403 && logOut();
         } finally {
           setIsDisabled(false);
         }

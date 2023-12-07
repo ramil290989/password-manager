@@ -1,21 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Container, Spinner } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
-import AuthContext from '../context/AuthContext';
-import { actions as passwordActions } from '../slices/passwordsSlice';
+import { useSelector } from 'react-redux';
+import useLogOut from '../hooks/useLogOut.jsx';
 
 const LoadingFailed = () => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const logOut = useLogOut();
   const error = useSelector((state) => state.passwords.error);
-  const { setAuthData } = useContext(AuthContext);
-  if (error.includes('403')) {
-    setAuthData({});
-    localStorage.removeItem('pasManUsername');
-    localStorage.removeItem('pasManToken');
-    dispatch(passwordActions.resetData());
-  }
+  
+  error.includes('403') && logOut();
 
   return (
     <Container className='text-center'>
