@@ -8,6 +8,7 @@ import { actions as passwordsActions} from '../../slices/passwordsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import AuthContext from '../../context/AuthContext.jsx';
 import apiRoutes from '../../apiRoutes.js';
+import useLogOut from '../../hooks/useLogOut.jsx';
 
 const RemoveModal = () => {
   const dispatch = useDispatch();
@@ -27,12 +28,7 @@ const RemoveModal = () => {
     dispatch(modalsActions.modalHide());
   };
 
-  const resetAuth = () => {
-    setAuthData({});
-    localStorage.removeItem('pasManUsername');
-    localStorage.removeItem('pasManToken');
-    dispatch(passwordsActions.resetData());
-  };
+  const logOut = useLogOut();
 
   const removePassword = () => {
     axios.post(removePath, removeData, authHeader)
@@ -44,7 +40,7 @@ const RemoveModal = () => {
       .catch((e) => {
         const { status } = e.response;
         dispatch(toastActions.toastShowError(status));
-        status === 403 && resetAuth();
+        status === 403 && logOut();
       })
       .finally(onHide());
   };
