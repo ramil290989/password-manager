@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Navbar, Nav, Button } from 'react-bootstrap';
+import { Navbar, Nav, Button, Dropdown, DropdownHeader, DropdownMenu, NavDropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import AuthContext from '../../context/AuthContext.jsx';
 import { useTranslation } from 'react-i18next';
@@ -23,7 +23,10 @@ const NavbarControl = () => {
         <>
           <Nav className='mx-md-2 mx-lg-4 mb-2 mb-md-0'>
             <Nav.Link className='text-dark' onClick={openAddPasswordModal}>{t('navbar.addPassword')}</Nav.Link>
-            <Nav.Link className='text-dark'>{t('navbar.settings')}</Nav.Link>
+            <NavDropdown title='Настройки'>
+              <NavDropdown.Item>Язык</NavDropdown.Item>              
+              <NavDropdown.Item>Изменить пароль</NavDropdown.Item>
+            </NavDropdown>
           </Nav>
           <Navbar.Text className='mx-md-2'>
             {t('navbar.userInf')}{username}
