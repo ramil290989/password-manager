@@ -1,22 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import AuthContext from '../../context/AuthContext.jsx';
 import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import { selectors as passwordSelectors } from '../../slices/passwordsSlice.js';
 import apiRoutes from '../../apiRoutes.js';
 import useLogOut from '../../hooks/useLogOut.jsx';
+import useAuthHeader from '../../hooks/useAuthHeader.jsx';
 
 const EditPasswordForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const { authData, setAuthData } = useContext(AuthContext);
   const { t } = useTranslation();
   
   const id = useSelector((state) => state.modals.id);
@@ -24,7 +23,7 @@ const EditPasswordForm = () => {
   const { header, description, userName, password } = passwordObj;
 
   const logOut = useLogOut();
-
+  const authHeader = useAuthHeader();
   return (
     <Formik
       initialValues={{
@@ -37,8 +36,6 @@ const EditPasswordForm = () => {
         setIsDisabled(true);
         setError('');
         const changePasswordRoute = apiRoutes.changePassword();
-        const { token } = authData;
-        const authHeader = { headers: { Authorization: token }}
         const postData = { id, values };
         console.log(postData);
         try {

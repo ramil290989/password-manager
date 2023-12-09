@@ -1,24 +1,24 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import AuthContext from '../../context/AuthContext.jsx';
 import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import apiRoutes from '../../apiRoutes.js';
 import useLogOut from '../../hooks/useLogOut.jsx';
+import useAuthHeader from '../../hooks/useAuthHeader.jsx';
 
 const AddPasswordForm = () => {
   const [isDisabled, setIsDisabled] = useState(false);
   const [error, setError] = useState('');
   const dispatch = useDispatch();
-  const { authData } = useContext(AuthContext);
   const { t } = useTranslation();
 
   const logOut = useLogOut();
+  const authHeader = useAuthHeader();
 
   return (
     <Formik
@@ -32,8 +32,6 @@ const AddPasswordForm = () => {
         setIsDisabled(true);
         setError('');
         const addPasswordRoute = apiRoutes.addPassword();
-        const { token } = authData;
-        const authHeader = { headers: { Authorization: token }}
         try {
           const newPassword = await axios.post(addPasswordRoute, values, authHeader);
           dispatch(passwordsActions.addPassword(newPassword.data));

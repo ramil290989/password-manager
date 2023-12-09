@@ -1,11 +1,12 @@
 import { createAsyncThunk ,createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import apiRoutes from '../apiRoutes.js';
 import axios from 'axios';
+import useAuthHeader from '../hooks/useAuthHeader.jsx';
 
 export const getPasswords = createAsyncThunk(
   'loadPasswords',
-  async (token) => {
-    const authHeader = { headers: { Authorization: token } };
+  async () => {
+    const authHeader = useAuthHeader();
     const path = apiRoutes.data();
     const response = await axios.get(path, authHeader);
     return response.data;

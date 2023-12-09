@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
@@ -6,14 +6,14 @@ import axios from 'axios';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as passwordsActions} from '../../slices/passwordsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
-import AuthContext from '../../context/AuthContext.jsx';
 import apiRoutes from '../../apiRoutes.js';
 import useLogOut from '../../hooks/useLogOut.jsx';
+import useAuthHeader from '../../hooks/useAuthHeader.jsx';
 
 const RemoveModal = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const { authData, setAuthData } = useContext(AuthContext);
+  const authHeader = useAuthHeader();
 
   const isShow = useSelector((state) => state.modals.window) === 'removePassword';
   const id = useSelector((state) => state.modals.id);
@@ -21,8 +21,6 @@ const RemoveModal = () => {
   
   const removePath = apiRoutes.removePassword();
   const removeData = { id };
-  const { token } = authData;
-  const authHeader = { headers: { Authorization: token }};
 
   const onHide = () => {
     dispatch(modalsActions.modalHide());
