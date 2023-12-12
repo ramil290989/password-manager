@@ -13,6 +13,21 @@ const ru = {
       signUpBtn: 'Зарегистрироваться',
       addPasswordBtn: 'Добавить пароль',
       editPasswordBtn: 'Изменить пароль',
+      head: {
+        changeUserPassword: 'Изменить пароль пользователя',
+      },
+      inputs: {
+        password: 'Пароль',
+        passwordConfirm: 'Подтверждение пароля',
+        newPassword: 'Новый пароль',
+        newPasswordConfirm: 'Подтверждение нового пароля',
+      },
+      buttons: {
+        editPassword: 'Изменить пароль',
+      },
+      checks: {
+        showPassword: 'Показать пароль',
+      },
     },
     modals: {
       editPassword: {
@@ -44,6 +59,8 @@ const ru = {
       logoutBtn: 'Выйти',
       addPassword: 'Добавить пароль',
       settings: 'Настройки',
+      language: 'Язык',
+      changeUserPassword: 'Изменить пароль пользователя',
     },
     errors: {
       401: 'Неправильное имя пользователя или пароль',
@@ -51,6 +68,7 @@ const ru = {
       409: 'Такое имя пользователя уже существует',
       431: 'Ошибка на стороне сервера',
       500: 'Ошибка соединения',
+      wrongPassword: 'Неправильный пароль',
     },
     toast: {
       error: 'Ошибка',
@@ -58,6 +76,7 @@ const ru = {
       passwordAdded: 'Пароль добавлен',
       passwordChanged: 'Пароль изменен',
       passwordRemoved: 'Пароль удален',
+      userPasswordChanged: 'Пароль входа в систему успешно изменен',
     },
     other: {
       loading: 'Загрузка',

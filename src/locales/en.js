@@ -13,6 +13,21 @@ const en = {
       signUpBtn: 'Sign up',
       addPasswordBtn: 'Add password',
       editPasswordBtn: 'Edit password',
+      head: {
+        changeUserPassword: 'Edit user password',
+      },
+      inputs: {
+        password: 'Password',
+        passwordConfirm: 'Confirm password',
+        newPassword: 'New password',
+        newPasswordConfirm: 'Confirm new password',
+      },
+      buttons: {
+        editPassword: 'Edit password',
+      },
+      checks: {
+        showPassword: 'Show password',
+      },
     },
     modals: {
       editPassword: {
@@ -44,6 +59,8 @@ const en = {
       logoutBtn: 'Log out',
       addPassword: 'Add password',
       settings: 'Settings',
+      language: 'Language',
+      changeUserPassword: 'Edit user password',
     },
     errors: {
       401: 'Incorrect username or password',
@@ -51,6 +68,7 @@ const en = {
       409: 'This username already exists',
       431: 'Connection error',
       500: 'Connection error',
+      wrongPassword: 'Wrong password',
     },
     toast: {
       error: 'Error',
@@ -58,6 +76,7 @@ const en = {
       passwordAdded: 'Password added',
       passwordChanged: 'Password changed',
       passwordRemoved: 'Passwor removed',
+      userPasswordChanged: 'User password changed',
     },
     other: {
       loading: 'Loading',      
