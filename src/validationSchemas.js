@@ -13,4 +13,13 @@ const validationSchemaSignUp = (t) => Yup.object({
     .required(t('validations.required')),
 });
 
-export { validationSchemaSignUp };
+const validationSchemaChangeUserPassword = (t) => Yup.object({
+  newPassword: Yup.string()
+    .min(6, t('validations.min6'))
+    .required(t('validations.required')),
+  confirmNewPassword: Yup.string()
+    .oneOf([Yup.ref('newPassword'), null], t('validations.oneOf'))
+    .required(t('validations.required')),
+});
+
+export { validationSchemaSignUp, validationSchemaChangeUserPassword };
