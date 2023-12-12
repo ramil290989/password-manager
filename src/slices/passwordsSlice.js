@@ -7,6 +7,7 @@ export const getPasswords = createAsyncThunk(
   'loadPasswords',
   async () => {
     const authHeader = useAuthHeader();
+    console.log(authHeader);
     const path = apiRoutes.data();
     const response = await axios.get(path, authHeader);
     return response.data;
