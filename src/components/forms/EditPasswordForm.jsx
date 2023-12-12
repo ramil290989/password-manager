@@ -35,16 +35,14 @@ const EditPasswordForm = () => {
       onSubmit={ async (values) => {
         setIsDisabled(true);
         setError('');
-        const changePasswordRoute = apiRoutes.changePassword();
+        const editPasswordRoute = apiRoutes.editPassword();
         const postData = { id, values };
-        console.log(postData);
         try {
-          await axios.post(changePasswordRoute, postData, authHeader);
+          await axios.post(editPasswordRoute, postData, authHeader);
           dispatch(passwordsActions.updatePassword({ id, changes: values }));
           dispatch(modalsActions.modalHide());
           dispatch(toastActions.toastShowSuccess('toast.passwordChanged'));
         } catch (e) {
-          console.log(e);
           const status = e.response.status;
           setError(status);
           dispatch(toastActions.toastShowError(status));
