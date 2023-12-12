@@ -1,9 +1,10 @@
 const apiRoutes = {
-  login: () => '/api/login',
   signup: () => '/api/signin',
+  login: () => '/api/login',
+  changeUserPassword: () => '/api/changeuserpassword',
   data: () => '/api/data',
   addPassword: () => '/api/addpassword',
-  changePassword: () => '/api/changepassword',
+  editPassword: () => '/api/editpassword',
   removePassword: () => '/api/removepassword',
 };
 
