@@ -70,6 +70,9 @@ const en = {
       500: 'Connection error',
       wrongPassword: 'Wrong password',
     },
+    footer: {
+      developer: 'Ramil Garifullin, 2023'
+    },
     toast: {
       error: 'Error',
       success: 'Success',
