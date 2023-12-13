@@ -3,7 +3,7 @@ import { Navbar, Container } from 'react-bootstrap';
 import NavbarControl from './NavbarControl.jsx';
 
 const HeaderNav = () => (
-  <Navbar expand='md' className='bg-body-tertiary'>
+  <Navbar expand='md' className='bg-body-secondary'>
     <Container>
       <Navbar.Brand href='/'>Password Manager</Navbar.Brand>
       <Navbar.Toggle aria-controls='navbar' />
