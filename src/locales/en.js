@@ -83,6 +83,9 @@ const en = {
       loadingText: 'please wait, data is loading...',
       error: 'Error',
       errorText: 'please try again later...',
+      404: 'error 404',
+      pageNotFound: 'page not found',
+      toMainPageButton: 'To main page',
     },
   },
 };
