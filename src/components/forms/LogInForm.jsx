@@ -41,27 +41,27 @@ const LogInForm = () => {
     >
       {(formProps) => (
         <Form onSubmit={formProps.handleSubmit}>
-          <h1 className='mb-4'>{t('forms.login')}</h1>
-          <Form.FloatingLabel className='mb-3' label={t('forms.usernameInput')}>
+          <h1 className='mb-4'>{t('forms.headers.login')}</h1>
+          <Form.FloatingLabel className='mb-3' label={t('forms.inputs.username')}>
             <Form.Control
               id='username'
               name='username'
               type='text'
               className={error ? 'is-invalid' : null}
-              placeholder={t('forms.usernameInput')}
+              placeholder={t('forms.inputs.username')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
               required
             />
           </Form.FloatingLabel>
-          <Form.FloatingLabel className='mb-5' label={t('forms.passwordInput')}>
+          <Form.FloatingLabel className='mb-5' label={t('forms.inputs.password')}>
             <Form.Control
               id='password'
               name='password'
               type='password'
               className={error ? 'is-invalid' : null}
-              placeholder={t('forms.passwordInput')}
+              placeholder={t('forms.inputs.password')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
@@ -71,7 +71,7 @@ const LogInForm = () => {
               <div className='invalid-tooltip'>{t(`errors.${error}`)}</div>
               ) : null}          
           </Form.FloatingLabel>
-          <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.loginBtn')}</Button>
+          <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.buttons.login')}</Button>
         </Form>
       )}
     </Formik>

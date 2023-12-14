@@ -54,13 +54,13 @@ const EditPasswordForm = () => {
     >
       {(formProps) => (
         <Form onSubmit={formProps.handleSubmit}>
-          <Form.FloatingLabel className='mb-4' label={t('forms.headerInput')}>
+          <Form.FloatingLabel className='mb-4' label={t('forms.inputs.header')}>
             <Form.Control
               id='header'
               name='header'
               type='text'
               className={error ? 'is-invalid' : null}
-              placeholder={t('forms.headerInput')}
+              placeholder={t('forms.inputs.header')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
@@ -71,7 +71,7 @@ const EditPasswordForm = () => {
               <div className='invalid-tooltip'>{formProps.errors.header}</div>
               ) : null}
           </Form.FloatingLabel>
-          <Form.FloatingLabel className='mb-4 text-end' label={t('forms.descriptionInput')}>
+          <Form.FloatingLabel className='mb-4 text-end' label={t('forms.inputs.description')}>
             <Form.Control
               as="textarea"
               maxLength="100"
@@ -80,7 +80,7 @@ const EditPasswordForm = () => {
               name='description'
               type='text'
               className={error ? 'is-invalid' : 'h-100'}
-              placeholder={t('forms.descriptionInput')}
+              placeholder={t('forms.inputs.description')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
@@ -90,13 +90,13 @@ const EditPasswordForm = () => {
               {100 - formProps.values.description.length}
             </Form.Text>
           </Form.FloatingLabel>
-          <Form.FloatingLabel className='mb-4' label={t('forms.usernameInput')}>
+          <Form.FloatingLabel className='mb-4' label={t('forms.inputs.username')}>
             <Form.Control
               id='userName'
               name='userName'
               type='text'
               className={error ? 'is-invalid' : null}
-              placeholder={t('forms.usernameInput')}
+              placeholder={t('forms.inputs.username')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
@@ -107,13 +107,13 @@ const EditPasswordForm = () => {
               <div className='invalid-tooltip'>{formProps.errors.userName}</div>
               ) : null}
           </Form.FloatingLabel>
-          <Form.FloatingLabel className='mb-4' label={t('forms.passwordInput')}>
+          <Form.FloatingLabel className='mb-4' label={t('forms.inputs.password')}>
             <Form.Control
               id='password'
               name='password'
               type='text'
               className={error ? 'is-invalid' : null}
-              placeholder={t('forms.passwordInput')}
+              placeholder={t('forms.inputs.password')}
               onChange={formProps.handleChange}
               onBlur={formProps.handleBlur}
               disabled={isDisabled}
@@ -124,7 +124,7 @@ const EditPasswordForm = () => {
               <div className='invalid-tooltip'>{formProps.errors.password}</div>
               ) : null}
           </Form.FloatingLabel>
-          <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.editPasswordBtn')}</Button>
+          <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.buttons.editPassword')}</Button>
         </Form>
       )}
     </Formik>

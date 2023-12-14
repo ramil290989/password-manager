@@ -1,43 +1,40 @@
 const en = {
   translation: {
     forms: {
-      login: 'Authorization',
-      signUp: 'Registration',
-      addPassword: 'Add password',
-      usernameInput: 'Username',
-      passwordInput: 'Password',
-      passwordConfirmInput: 'Confirm password',
-      headerInput: 'Header',
-      descriptionInput: 'Short description',
-      loginBtn: 'Log in',
-      signUpBtn: 'Sign up',
-      addPasswordBtn: 'Add password',
-      editPasswordBtn: 'Edit password',
-      head: {
-        changeUserPassword: 'Edit user password',
+      headers: {
+        login: 'Authorization',
+        signUp: 'Registration',
       },
       inputs: {
+        username: 'Username',
         password: 'Password',
         passwordConfirm: 'Confirm password',
         newPassword: 'New password',
         newPasswordConfirm: 'Confirm new password',
+        header: 'Header',
+        description: 'Short description',
       },
       buttons: {
+        login: 'Log in',
+        signUp: 'Sign up',
         editPassword: 'Edit password',
+        addPassword: 'Add password',
       },
       checks: {
         showPassword: 'Show password',
       },
     },
     modals: {
-      editPassword: {
-        head: 'Edit password',
+      headers: {
+        addPassword: 'Add password',
+        editPassword: 'Edit password',
+        removePassword: 'Remove password',
+        changeUserPassword: 'Change user password',
       },
-      remove: {
-        head: 'Remove password',
-        title: 'Confirm password removal',
+      titles: {
+        confirmRemove: 'Confirm password removal',
       },
-      btns: {
+      buttons: {
         save: 'Save',
         cancel: 'Cancel',
         remove: 'Remove',

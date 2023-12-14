@@ -21,7 +21,7 @@ const ChangeUserPasswordModal = () => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{t('forms.head.changeUserPassword')}</Modal.Title>
+        <Modal.Title>{t('modals.headers.changeUserPassword')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <ChangeUserPasswordForm />

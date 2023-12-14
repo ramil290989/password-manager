@@ -14,7 +14,7 @@ const Login = () => {
               <LogInForm />
             </Card.Body>
             <Card.Footer>
-              <Card.Link href='/signup'>{t('forms.signUpBtn')}</Card.Link>
+              <Card.Link href='/signup'>{t('forms.buttons.signUp')}</Card.Link>
             </Card.Footer>
           </Card>
         </Col>

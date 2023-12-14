@@ -50,14 +50,14 @@ const RemoveModal = () => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{t('modals.remove.head')}</Modal.Title>
+        <Modal.Title>{t('modals.headers.removePassword')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>{t('modals.remove.title')}</p>
+        <p>{t('modals.titles.confirmRemove')}</p>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant='secondary' onClick={onHide}>{t('modals.btns.cancel')}</Button>
-        <Button variant='danger' onClick={removePassword}>{t('modals.btns.remove')}</Button>
+        <Button variant='secondary' onClick={onHide}>{t('modals.buttons.cancel')}</Button>
+        <Button variant='danger' onClick={removePassword}>{t('modals.buttons.remove')}</Button>
       </Modal.Footer>
     </Modal>
   );

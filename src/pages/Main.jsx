@@ -13,7 +13,7 @@ const Main = () => {
     if (loadingStatus === 'loading') {
       dispatch(getPasswords());
     }
-  }, [ dispatch, loadingStatus]);
+  }, [dispatch, loadingStatus]);
 
   switch (loadingStatus) {
     case 'loading':

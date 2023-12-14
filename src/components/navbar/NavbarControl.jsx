@@ -42,7 +42,14 @@ const NavbarControl = () => {
           </div>
         </>
       )
-    : null;
+    : (
+        <Nav className='mx-md-2 mx-lg-4 mb-2 mb-md-0'>
+          <NavDropdown title={t('navbar.settings')}>
+            <NavDropdown.Item onClick={() => changeLanguage('ru')}>Русский</NavDropdown.Item>
+            <NavDropdown.Item onClick={() => changeLanguage('en')}>English</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      );
 };
 
 export default NavbarControl;

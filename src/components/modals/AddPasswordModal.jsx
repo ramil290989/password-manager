@@ -21,7 +21,7 @@ const AddPasswordModal = () => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title>{t('forms.addPassword')}</Modal.Title>
+        <Modal.Title>{t('modals.headers.addPassword')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <AddPasswordForm />

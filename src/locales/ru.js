@@ -1,43 +1,40 @@
 const ru = {
   translation: {
     forms: {
-      login: 'Авторизация',
-      signUp: 'Регистрация',
-      addPassword: 'Добавить пароль',
-      usernameInput: 'Имя пользователя',
-      passwordInput: 'Пароль',
-      passwordConfirmInput: 'Подтверждение пароля',
-      headerInput: 'Заголовок',
-      descriptionInput: 'Краткое описание',
-      loginBtn: 'Войти',
-      signUpBtn: 'Зарегистрироваться',
-      addPasswordBtn: 'Добавить пароль',
-      editPasswordBtn: 'Изменить пароль',
-      head: {
-        changeUserPassword: 'Изменить пароль пользователя',
+      headers: {
+        login: 'Авторизация',
+        signUp: 'Регистрация',
       },
       inputs: {
+        username: 'Имя пользователя',
         password: 'Пароль',
         passwordConfirm: 'Подтверждение пароля',
         newPassword: 'Новый пароль',
         newPasswordConfirm: 'Подтверждение нового пароля',
+        header: 'Заголовок',
+        description: 'Краткое описание',
       },
       buttons: {
+        login: 'Войти',
+        signUp: 'Зарегистрироваться',
         editPassword: 'Изменить пароль',
+        addPassword: 'Добавить пароль',
       },
       checks: {
         showPassword: 'Показать пароль',
       },
     },
     modals: {
-      editPassword: {
-        head: 'Редактировать пароль',
+      headers: {
+        addPassword: 'Добавить пароль',
+        editPassword: 'Редактировать пароль',
+        removePassword: 'Удалить пароль',
+        changeUserPassword: 'Изменить пароль пользователя',
       },
-      remove: {
-        head: 'Удалить пароль',
-        title: 'Подтвердите удаление пароля',
+      titles: {
+        confirmRemove: 'Подтвердите удаление пароля',
       },
-      btns: {
+      buttons: {
         save: 'Сохранить',
         cancel: 'Отмена',
         remove: 'Удалить',
