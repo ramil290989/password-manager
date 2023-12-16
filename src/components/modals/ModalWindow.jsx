@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import AddPasswordModal from './AddPasswordModal.jsx';
 import EditPasswordModal from './EditPasswordModal.jsx';

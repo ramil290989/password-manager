@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { actions as modalsActions } from '../../slices/modalsSlice';
 import { Modal } from 'react-bootstrap';
+import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import ChangeUserPasswordForm from '../forms/ChangeUserPasswordForm.jsx';
 
 const ChangeUserPasswordModal = () => {

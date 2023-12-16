@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   show: false,
@@ -11,13 +12,13 @@ const toastSlice = createSlice({
   name: 'toast',
   initialState,
   reducers: {
-    toastShowSuccess: (state, {payload}) => {
+    toastShowSuccess: (state, { payload }) => {
       state.show = true;
       state.head = 'toast.success';
       state.title = payload;
       state.style = 'success';
     },
-    toastShowError: (state, {payload}) => {
+    toastShowError: (state, { payload }) => {
       state.show = true;
       state.head = 'toast.error';
       state.title = payload;

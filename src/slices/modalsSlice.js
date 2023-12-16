@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   window: null,
@@ -13,7 +14,7 @@ const modalsSlice = createSlice({
       state.window = payload.window;
       state.id = payload.id;
     },
-    modalHide: () => initialState
+    modalHide: () => initialState,
   },
 });
 

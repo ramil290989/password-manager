@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Card, Stack } from 'react-bootstrap';
 import { passwordHide } from '../processings/hideBtnClick.js';
@@ -5,7 +6,13 @@ import PasswordCardBtns from './PasswordCardBtns.jsx';
 
 const PasswordCard = (props) => {
   const { data } = props;
-  const { id, header, description, userName, password } = data;
+  const {
+    id,
+    header,
+    description,
+    userName,
+    password,
+  } = data;
   return (
     <Card className='h-100'>
       <Card.Header>
@@ -26,7 +33,7 @@ const PasswordCard = (props) => {
           </span>
         </div>
       </Stack>
-      <PasswordCardBtns data={{ id, password }} />        
+      <PasswordCardBtns data={{ id, password }} />
     </Card>
   );
 };

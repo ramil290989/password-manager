@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css'
+import './App.css';
 import AuthContext from './context/AuthContext.jsx';
 import HeaderNav from './components/navbar/Navbar.jsx';
 import Footer from './components/footer/Footer.jsx';
@@ -23,7 +23,7 @@ const App = () => {
         <HeaderNav />
         <BrowserRouter>
           <Routes>
-            <Route path='*' element={<PageNotFound />}/>
+            <Route path='*' element={<PageNotFound />} />
             <Route path='login' element={<Login />} />
             <Route path='signup' element={<SignUp />} />
             <Route
@@ -32,13 +32,14 @@ const App = () => {
                 <PrivateRoute>
                   <Main />
                 </PrivateRoute>
-              } />
+              }
+            />
           </Routes>
         </BrowserRouter>
         <Footer />
       </div>
     </AuthContext.Provider>
   );
-}
+};
 
 export default App;

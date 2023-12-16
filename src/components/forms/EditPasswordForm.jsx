@@ -1,13 +1,13 @@
+/* eslint-disable no-unused-expressions */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { Button, Form } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
-import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
+import { actions as passwordsActions, selectors as passwordSelectors } from '../../slices/passwordsSlice.js';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
-import { selectors as passwordSelectors } from '../../slices/passwordsSlice.js';
 import apiRoutes from '../../apiRoutes.js';
 import useLogOut from '../../hooks/useLogOut.jsx';
 import useAuthHeader from '../../hooks/useAuthHeader.jsx';
@@ -17,10 +17,15 @@ const EditPasswordForm = () => {
   const [error, setError] = useState('');
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  
+
   const id = useSelector((state) => state.modals.id);
   const passwordObj = useSelector((state) => passwordSelectors.selectById(state, id));
-  const { header, description, userName, password } = passwordObj;
+  const {
+    header,
+    description,
+    userName,
+    password,
+  } = passwordObj;
 
   const logOut = useLogOut();
   const authHeader = useAuthHeader();
@@ -32,7 +37,7 @@ const EditPasswordForm = () => {
         userName,
         password,
       }}
-      onSubmit={ async (values) => {
+      onSubmit={async (values) => {
         setIsDisabled(true);
         setError('');
         const editPasswordRoute = apiRoutes.editPassword();
@@ -43,7 +48,7 @@ const EditPasswordForm = () => {
           dispatch(modalsActions.modalHide());
           dispatch(toastActions.toastShowSuccess('toast.passwordChanged'));
         } catch (e) {
-          const status = e.response.status;
+          const { status } = e.response;
           setError(status);
           dispatch(toastActions.toastShowError(status));
           status === 403 && logOut();
@@ -69,7 +74,7 @@ const EditPasswordForm = () => {
             />
             {formProps.errors.header && formProps.touched.header ? (
               <div className='invalid-tooltip'>{formProps.errors.header}</div>
-              ) : null}
+            ) : null}
           </Form.FloatingLabel>
           <Form.FloatingLabel className='mb-4 text-end' label={t('forms.inputs.description')}>
             <Form.Control
@@ -105,7 +110,7 @@ const EditPasswordForm = () => {
             />
             {formProps.errors.userName && formProps.touched.userName ? (
               <div className='invalid-tooltip'>{formProps.errors.userName}</div>
-              ) : null}
+            ) : null}
           </Form.FloatingLabel>
           <Form.FloatingLabel className='mb-4' label={t('forms.inputs.password')}>
             <Form.Control
@@ -122,13 +127,13 @@ const EditPasswordForm = () => {
             />
             {formProps.errors.password && formProps.touched.password ? (
               <div className='invalid-tooltip'>{formProps.errors.password}</div>
-              ) : null}
+            ) : null}
           </Form.FloatingLabel>
           <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.buttons.editPassword')}</Button>
         </Form>
       )}
     </Formik>
-  )
+  );
 };
 
 export default EditPasswordForm;

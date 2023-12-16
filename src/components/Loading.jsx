@@ -8,7 +8,9 @@ const Loading = () => {
   return (
     <Container className='text-center'>
       <Spinner animation='border' variant='primary mt-5' />
-      <span className='fs-2 text-primary'> {t('other.loading')}</span>
+      <span className='fs-2 text-primary'>
+        {` ${t('other.loading')}`}
+      </span>
       <p className='fs-4'>{t('other.loadingText')}</p>
     </Container>
   );

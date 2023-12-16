@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {
   Row,
   Col,
-  Container
+  Container,
 } from 'react-bootstrap';
 import { selectors as passwordsSelectors } from '../../slices/passwordsSlice.js';
 import PasswordCard from './PaswordCard.jsx';

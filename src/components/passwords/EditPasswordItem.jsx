@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,8 @@ const EditPasswordItem = ({ id }) => {
         className='mx-2'
         src={icons.edit()}
         alt='edit'
-      /> {t('passwordCardBtns.edit')}
+      />
+      {t('passwordCardBtns.edit')}
     </Dropdown.Item>
   );
 };

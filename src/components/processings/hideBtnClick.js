@@ -8,18 +8,18 @@ const hideBtnClick = ({ id, password }) => {
   const isHide = passwordEl.getAttribute('data-hide');
   switch (isHide) {
     case 'true':
-      passwordEl.setAttribute('data-hide', 'false')
+      passwordEl.setAttribute('data-hide', 'false');
       passwordEl.textContent = password;
       viewBtnIco.setAttribute('src', icons.hide());
-      return;
+      break;
     case 'false':
-      passwordEl.setAttribute('data-hide', 'true')
+      passwordEl.setAttribute('data-hide', 'true');
       passwordEl.textContent = passwordHide(password);
       viewBtnIco.setAttribute('src', icons.view());
-      return;
+      break;
     default:
-      return;
-  };
+      break;
+  }
 };
 
 export { passwordHide, hideBtnClick };

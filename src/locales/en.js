@@ -68,7 +68,7 @@ const en = {
       wrongPassword: 'Wrong password',
     },
     footer: {
-      developer: 'Ramil Garifullin, 2023'
+      developer: 'Ramil Garifullin, 2023',
     },
     toast: {
       error: 'Error',
@@ -79,7 +79,7 @@ const en = {
       userPasswordChanged: 'User password changed',
     },
     other: {
-      loading: 'Loading',      
+      loading: 'Loading',
       loadingText: 'please wait, data is loading...',
       error: 'Error',
       errorText: 'please try again later...',

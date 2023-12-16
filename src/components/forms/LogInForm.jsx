@@ -19,7 +19,7 @@ const LogInForm = () => {
         username: '',
         password: '',
       }}
-      onSubmit={ async ({ username, password }) => {
+      onSubmit={async ({ username, password }) => {
         setIsDisabled(true);
         setError('');
         const loginRoute = apiRoutes.login();
@@ -36,7 +36,6 @@ const LogInForm = () => {
         } finally {
           setIsDisabled(false);
         }
-
       }}
     >
       {(formProps) => (
@@ -69,13 +68,13 @@ const LogInForm = () => {
             />
             {error ? (
               <div className='invalid-tooltip'>{t(`errors.${error}`)}</div>
-              ) : null}          
+            ) : null}
           </Form.FloatingLabel>
           <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.buttons.login')}</Button>
         </Form>
       )}
     </Formik>
-  )
+  );
 };
 
 export default LogInForm;

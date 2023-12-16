@@ -22,7 +22,7 @@ const SignUpForm = () => {
         password: '',
         confirmPassword: '',
       }}
-      onSubmit={ async ({ username, password }) => {
+      onSubmit={async ({ username, password }) => {
         setIsDisabled(true);
         setError('');
         const loginRoute = apiRoutes.signup();
@@ -50,7 +50,7 @@ const SignUpForm = () => {
               id='username'
               name='username'
               type='text'
-              className={formProps.errors.username && formProps.touched.username || error ? 'is-invalid' : null}
+              className={(formProps.errors.username && formProps.touched.username) || error ? 'is-invalid' : null}
               placeholder={t('forms.inputs.username')}
               onChange={({ target }) => formProps.setFieldValue('username', formTrim(target.value))}
               onBlur={formProps.handleBlur}
@@ -60,14 +60,14 @@ const SignUpForm = () => {
             />
             {formProps.errors.username && formProps.touched.username ? (
               <div className='invalid-tooltip'>{formProps.errors.username}</div>
-              ) : null}
+            ) : null}
           </Form.FloatingLabel>
           <Form.FloatingLabel className='mb-4' label={t('forms.inputs.password')}>
             <Form.Control
               id='password'
               name='password'
               type='password'
-              className={formProps.errors.password && formProps.touched.password || error ? 'is-invalid' : null}
+              className={(formProps.errors.password && formProps.touched.password) || error ? 'is-invalid' : null}
               placeholder={t('forms.inputs.password')}
               onChange={({ target }) => formProps.setFieldValue('password', formTrim(target.value))}
               onBlur={formProps.handleBlur}
@@ -77,14 +77,14 @@ const SignUpForm = () => {
             />
             {formProps.errors.password && formProps.touched.password ? (
               <div className='invalid-tooltip'>{formProps.errors.password}</div>
-              ) : null}
+            ) : null}
           </Form.FloatingLabel>
           <Form.FloatingLabel className='mb-4' label={t('forms.inputs.passwordConfirm')}>
             <Form.Control
               id='confirmPassword'
               name='confirmPassword'
               type='password'
-              className={formProps.errors.confirmPassword && formProps.touched.confirmPassword || error ? 'is-invalid' : null}
+              className={(formProps.errors.confirmPassword && formProps.touched.confirmPassword) || error ? 'is-invalid' : null}
               placeholder={t('forms.inputs.passwordConfirm')}
               onChange={({ target }) => formProps.setFieldValue('confirmPassword', formTrim(target.value))}
               onBlur={formProps.handleBlur}
@@ -92,15 +92,15 @@ const SignUpForm = () => {
               value={formTrim(formProps.values.confirmPassword)}
               required
             />
-            {formProps.errors.confirmPassword && formProps.touched.confirmPassword || error ? (
+            {(formProps.errors.confirmPassword && formProps.touched.confirmPassword) || error ? (
               <div className='invalid-tooltip'>{formProps.errors.confirmPassword ?? t(`errors.${error}`)}</div>
-              ) : null}          
+            ) : null}
           </Form.FloatingLabel>
           <Button type='submit' className='w-100 mb-3' disabled={isDisabled}>{t('forms.buttons.signUp')}</Button>
         </Form>
       )}
     </Formik>
-  )
+  );
 };
 
 export default SignUpForm;

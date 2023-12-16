@@ -1,17 +1,17 @@
-import { createAsyncThunk ,createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import apiRoutes from '../apiRoutes.js';
+/* eslint-disable no-param-reassign */
+import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
+import apiRoutes from '../apiRoutes.js';
 import useAuthHeader from '../hooks/useAuthHeader.jsx';
 
 export const getPasswords = createAsyncThunk(
   'loadPasswords',
   async () => {
     const authHeader = useAuthHeader();
-    console.log(authHeader);
     const path = apiRoutes.data();
     const response = await axios.get(path, authHeader);
     return response.data;
-  }
+  },
 );
 
 const passwordsAdapter = createEntityAdapter();
@@ -44,8 +44,8 @@ const passwordSlice = createSlice({
       .addCase(getPasswords.rejected, (state, action) => {
         state.loadingStatus = 'failed';
         state.error = action.error.message;
-      })
-  }
+      });
+  },
 });
 
 export const selectors = passwordsAdapter.getSelectors((state) => state.passwords);

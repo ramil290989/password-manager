@@ -30,7 +30,7 @@ const Main = () => {
       );
     default:
       return null;
-  };
+  }
 };
 
 export default Main;

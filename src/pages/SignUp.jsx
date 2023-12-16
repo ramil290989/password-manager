@@ -1,7 +1,12 @@
 import React from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
-import SignUpForm from '../components/forms/SignUpForm.jsx';
 import { useTranslation } from 'react-i18next';
+import {
+  Card,
+  Col,
+  Container,
+  Row,
+} from 'react-bootstrap';
+import SignUpForm from '../components/forms/SignUpForm.jsx';
 
 const Login = () => {
   const { t } = useTranslation();

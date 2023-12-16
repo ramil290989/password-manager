@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client';
-import initApp from './initApp.js';
+import initApp from './initApp.jsx';
 
 initApp()
   .then((vdom) => {

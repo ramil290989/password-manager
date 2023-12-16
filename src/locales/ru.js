@@ -68,7 +68,7 @@ const ru = {
       wrongPassword: 'Неправильный пароль',
     },
     footer: {
-      developer: 'Рамиль Гарифуллин, 2023'
+      developer: 'Рамиль Гарифуллин, 2023',
     },
     toast: {
       error: 'Ошибка',

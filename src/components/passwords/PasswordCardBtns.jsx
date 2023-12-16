@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { useRef, useState } from 'react';
 import {
   ButtonGroup,
   Button,
   DropdownButton,
-  Dropdown,
   Image,
   Overlay,
 } from 'react-bootstrap';
@@ -21,7 +22,6 @@ const PasswordCardBtns = (props) => {
   const [show, setShow] = useState(false);
   const target = useRef(null);
   return (
-    <>
     <ButtonGroup className='m-3'>
       <Button
         variant='primary'
@@ -43,8 +43,8 @@ const PasswordCardBtns = (props) => {
         <Image src={icons.copy()} alt='copy' />
       </Button>
       <Overlay target={target.current} show={show} placement='top'>
-        {(props) => (
-          <div {...props} className='bg-light m-2 p-1 pb-2 rounded-2 shadow'>
+        {(overlayProps) => (
+          <div {...overlayProps} className='bg-light m-2 p-1 pb-2 rounded-2 shadow'>
             {t('passwordCardBtns.overlayCopyOk')}
           </div>
         )}
@@ -59,7 +59,6 @@ const PasswordCardBtns = (props) => {
         <RemovePasswordItem id={id} />
       </DropdownButton>
     </ButtonGroup>
-    </>
   );
 };
 

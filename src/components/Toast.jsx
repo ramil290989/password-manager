@@ -19,15 +19,15 @@ const ToastMessage = () => {
   const title = useSelector((state) => state.toast.title);
   const style = useSelector((state) => state.toast.style);
   const [progress, setProgress] = useState(progressMax);
-  
+
   useEffect(() => {
     if (isShow) {
-      setTimeout(() => { dispatch(toastActions.toastHide()) }, toastDelay);
-      setTimeout(() => { setProgress(progress - progressDecrement)}, progressTimeout);
+      setTimeout(() => { dispatch(toastActions.toastHide()); }, toastDelay);
+      setTimeout(() => { setProgress(progress - progressDecrement); }, progressTimeout);
     } else {
-      setTimeout(() => { setProgress(progressMax)}, progressTimeout);
+      setTimeout(() => { setProgress(progressMax); }, progressTimeout);
     }
-  }, [isShow, progress]);
+  }, [isShow, progress, dispatch]);
 
   return (
     <ToastContainer position='top-center' className='p-5'>
@@ -40,12 +40,16 @@ const ToastMessage = () => {
         </Toast.Header>
         <Toast.Body>
           {style === 'success' ? t(title) : t(`errors.${title}`)}
-          <ProgressBar variant={style} min={progressMin} max={progressMax}
-            now={progress} />
+          <ProgressBar
+            variant={style}
+            min={progressMin}
+            max={progressMax}
+            now={progress}
+          />
         </Toast.Body>
       </Toast>
     </ToastContainer>
-  )
-}
+  );
+};
 
 export default ToastMessage;

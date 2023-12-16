@@ -1,6 +1,6 @@
 const useAuthHeader = () => {
-  const token = localStorage.getItem('pasManToken');  
-  const authHeader = { headers: { Authorization: token }};
+  const token = localStorage.getItem('pasManToken');
+  const authHeader = { headers: { Authorization: token } };
   return authHeader;
 };
 

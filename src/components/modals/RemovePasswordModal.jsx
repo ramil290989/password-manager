@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
 import { actions as modalsActions } from '../../slices/modalsSlice.js';
-import { actions as passwordsActions} from '../../slices/passwordsSlice.js';
+import { actions as passwordsActions } from '../../slices/passwordsSlice.js';
 import { actions as toastActions } from '../../slices/toastSlice.js';
 import apiRoutes from '../../apiRoutes.js';
 import useLogOut from '../../hooks/useLogOut.jsx';
@@ -18,7 +19,6 @@ const RemoveModal = () => {
   const isShow = useSelector((state) => state.modals.window) === 'removePassword';
   const id = useSelector((state) => state.modals.id);
 
-  
   const removePath = apiRoutes.removePassword();
   const removeData = { id };
 
