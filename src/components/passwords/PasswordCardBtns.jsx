@@ -19,7 +19,7 @@ const PasswordCardBtns = (props) => {
   const { t } = useTranslation();
   const { data } = props;
   const { id, password } = data;
-  const [show, setShow] = useState(false);
+  const [overlayShow, setOverlayShow] = useState(false);
   const target = useRef(null);
   return (
     <ButtonGroup className='m-3'>
@@ -35,14 +35,16 @@ const PasswordCardBtns = (props) => {
         />
       </Button>
       <Button
+        id={`copyBtn-${id}`}
         ref={target}
         variant='primary'
         className='w-50'
-        onClick={() => clipboardWrite(password, setShow, show)}
+        disabled
+        onClick={() => clipboardWrite(id, setOverlayShow)}
       >
         <Image src={icons.copy()} alt='copy' />
       </Button>
-      <Overlay target={target.current} show={show} placement='top'>
+      <Overlay target={target.current} show={overlayShow} placement='top'>
         {(overlayProps) => (
           <div {...overlayProps} className='bg-light m-2 p-1 pb-2 rounded-2 shadow'>
             {t('passwordCardBtns.overlayCopyOk')}
