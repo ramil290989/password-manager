@@ -20,13 +20,14 @@ const PasswordCardBtns = (props) => {
   const { data } = props;
   const { id, password } = data;
   const [overlayShow, setOverlayShow] = useState(false);
+  const [isDisabled, setIsDisabled] = useState('disabled');
   const target = useRef(null);
   return (
     <ButtonGroup className='m-3'>
       <Button
         variant='primary'
         className='w-50'
-        onClick={() => hideBtnClick({ id, password })}
+        onClick={() => hideBtnClick({ id, password, setIsDisabled })}
       >
         <Image
           id={`view-btn-ico-${id}`}
@@ -39,7 +40,7 @@ const PasswordCardBtns = (props) => {
         ref={target}
         variant='primary'
         className='w-50'
-        disabled
+        disabled={isDisabled}
         onClick={() => clipboardWrite(id, setOverlayShow)}
       >
         <Image src={icons.copy()} alt='copy' />
